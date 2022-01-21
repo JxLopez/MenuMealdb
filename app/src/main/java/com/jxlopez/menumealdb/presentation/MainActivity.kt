@@ -1,7 +1,8 @@
-package com.jxlopez.menumealdb
+package com.jxlopez.menumealdb.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jxlopez.menumealdb.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
