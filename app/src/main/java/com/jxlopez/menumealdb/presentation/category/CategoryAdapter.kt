@@ -1,5 +1,6 @@
 package com.jxlopez.menumealdb.presentation.category
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -29,13 +30,11 @@ class CategoryAdapter(private val categoryList: List<Category>)
             with(categoryList[position]) {
                 binding.tvCategory.text = strCategory
                 binding.ivPhotoCategory.loadImageUrl(strCategoryThumb)
-                //GlideApp.with(holder.itemView.context)
-                  //  .load(badgeUrl)
-                    //.into(binding.topLearnerImage)
 
-                holder.itemView.setOnClickListener {
-                    Toast.makeText(holder.itemView.context, strCategory,
-                        Toast.LENGTH_SHORT).show()
+                binding.bgContent.setOnClickListener {
+                    Log.e("categoriesAdapterIn::","Clic item category")
+                    if (::onItemClick.isInitialized)
+                        onItemClick(this)
                 }
             }
         }
