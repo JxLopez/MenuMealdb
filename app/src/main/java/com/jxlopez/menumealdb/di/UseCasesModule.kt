@@ -7,6 +7,8 @@ import com.jxlopez.menumealdb.domain.usescase.category.GetCategoryInteractor
 import com.jxlopez.menumealdb.domain.usescase.category.GetCategoryUseCase
 import com.jxlopez.menumealdb.domain.usescase.mealsbycategory.GetMealsCategoryInteractor
 import com.jxlopez.menumealdb.domain.usescase.mealsbycategory.GetMealsCategoryUseCase
+import com.jxlopez.menumealdb.domain.usescase.mealsrandom.GetMealRandomInteractor
+import com.jxlopez.menumealdb.domain.usescase.mealsrandom.GetMealRandomUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,4 +23,7 @@ object UseCasesModule {
 
     @Provides
     fun providesGetMealsCategoryUseCases(mealRepository: MealRepository): GetMealsCategoryUseCase = GetMealsCategoryInteractor(mealRepository)
+
+    @Provides
+    fun providesGetMealRandomUseCases(mealRepository: MealRepository): GetMealRandomUseCase = GetMealRandomInteractor(mealRepository)
 }
