@@ -23,7 +23,7 @@ interface ApiService {
 
     @GET("search.php")
     suspend fun searchMealsByName(
-        @Query("f") filterName: String
+        @Query("s") filterName: String
     ): Response<MealsResponse>
 
     @GET("random.php")

@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">MenuMealdb</string>
+    <string name="app_name">Recipe App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Category fragment-->
+    <string name="welcome_categories_list_fragment">Bienvenido</string>
+    <string name="what_cook_categories_list_fragment">¿Qué cocinamos hoy?</string>
+    <string name="food_recommended_categories_list_fragment">Receta recomendada</string>
+    <string name="categories_categories_list_fragment">Categorías</string>
+    <string name="not_found_categories_list_fragment">Sin categorias</string>
+    <string name="message_error_categories_list_fragment">Ocurrió un problema al obtener las categorias: %s</string>
+    <!-- Detail meal fragment-->
+    <string name="tags_detail_meal_fragment">Etiquetas</string>
+    <string name="ingredients_detail_meal_fragment">Ingredientes</string>
+    <string name="instructions_detail_meal_fragment">Instrucciones</string>
+    <string name="video_detail_meal_fragment">Visualiza el proceso</string>
+    <string name="search">Buscar</string>
 </resources>

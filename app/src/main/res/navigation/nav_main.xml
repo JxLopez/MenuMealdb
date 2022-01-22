@@ -12,7 +12,19 @@
         tools:layout="@layout/fragment_category_list" >
         <action
             android:id="@+id/action_categoryListFragment_to_mealListFragment"
-            app:destination="@id/mealListFragment" />
+            app:destination="@id/mealListFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:launchSingleTop="true"/>
+        <action
+            android:id="@+id/action_categoryListFragment_to_mealDetailFragment"
+            app:destination="@id/mealDetailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/mealListFragment"
@@ -22,5 +34,21 @@
         <argument
             android:name="category"
             app:argType="com.jxlopez.menumealdb.models.categories.Category" />
+        <action
+            android:id="@+id/action_mealListFragment_to_mealDetailFragment"
+            app:destination="@id/mealDetailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/mealDetailFragment"
+        android:name="com.jxlopez.menumealdb.presentation.meal.detail.MealDetailFragment"
+        android:label="fragment_meal_detail"
+        tools:layout="@layout/fragment_meal_detail" >
+        <argument
+            android:name="idMeal"
+            app:argType="string" />
     </fragment>
 </navigation>

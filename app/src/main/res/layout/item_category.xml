@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="8dp"
-    android:layout_height="180dp"
-    app:cardCornerRadius="8dp"
-    android:layout_marginBottom="1dp">
+    android:layout_margin="@dimen/margin_default"
+    android:layout_height="@dimen/size_heigth_card_category"
+    app:cardCornerRadius="@dimen/margin_default"
+    android:layout_marginBottom="@dimen/space_minimun">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bgContent"
@@ -26,7 +26,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="@dimen/space_medium"
             android:background="@drawable/gradient_black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
@@ -36,10 +36,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:text="@{name}"
-                tools:text="Cafe Tacvba"/>
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 

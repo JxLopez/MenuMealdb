@@ -4,11 +4,8 @@ import com.jxlopez.menumealdb.api.Error
 import com.jxlopez.menumealdb.api.Resource
 import com.jxlopez.menumealdb.api.Status
 import com.jxlopez.menumealdb.domain.repository.MealRepository
-import com.jxlopez.menumealdb.domain.usescase.mealsbycategory.GetMealsCategoryUseCase
 import com.jxlopez.menumealdb.entities.MealEntity
 import com.jxlopez.menumealdb.mappers.MealMapper
-import com.jxlopez.menumealdb.models.meals.Meal
-import com.jxlopez.menumealdb.models.meals.SingleMeal
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
@@ -20,7 +17,7 @@ class GetMealRandomInteractor@Inject constructor(
 
     override suspend fun randomMeal(): Flow<Resource<MealEntity>> =
         flow {
-            val result = mealsRepository.randomMeal().collect { resource ->
+            mealsRepository.randomMeal().collect { resource ->
                 when(resource.status) {
                     Status.SUCCESS -> {
                         val mealEntityList = resource.data?.map(MealMapper.mealEntityMapper)
