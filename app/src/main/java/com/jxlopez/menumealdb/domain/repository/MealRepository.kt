@@ -24,9 +24,29 @@ class MealRepository@Inject constructor(
             }
         }
 
-    suspend fun getDetailsMeal(idMeal: String) = apiHelper.getDetailsMeal(idMeal)
+    suspend fun getDetailsMeal(idMeal: String) : Flow<Resource<List<Meal>>> =
+        flow {
+            val result = apiHelper.getDetailsMeal(idMeal)
+            if(result.isSuccessful) {
+                emit(Resource.success(result.body()?.meals))
+            } else {
+                emit((Resource.error(result.errorBody().toString(), null,
+                    Error(result.code(), result.errorBody().toString())
+                )))
+            }
+        }
 
-    suspend fun searchMealsByName(nameQuery: String) = apiHelper.searchMealsByName(nameQuery)
+    suspend fun searchMealsByName(nameQuery: String) : Flow<Resource<List<Meal>>> =
+        flow {
+            val result = apiHelper.searchMealsByName(nameQuery)
+            if(result.isSuccessful) {
+                emit(Resource.success(result.body()?.meals))
+            } else {
+                emit((Resource.error(result.errorBody().toString(), null,
+                    Error(result.code(), result.errorBody().toString())
+                )))
+            }
+        }
 
     suspend fun randomMeal() : Flow<Resource<List<Meal>>> =
         flow {

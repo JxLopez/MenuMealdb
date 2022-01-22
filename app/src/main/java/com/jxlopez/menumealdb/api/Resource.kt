@@ -1,7 +1,7 @@
 package com.jxlopez.menumealdb.api
 
 data class Resource<out T>(
-    val status: Status,
+    var status: Status,
     val data: T?,
     val message:String?,
     val error: Error?
@@ -14,6 +14,10 @@ data class Resource<out T>(
 
         fun <T> error(msg:String, data:T?, error: Error): Resource<T>{
             return Resource(Status.ERROR, data, msg, error)
+        }
+
+        fun <T> loading(): Resource<T> {
+            return Resource(Status.LOADING, null, null, null)
         }
     }
 }

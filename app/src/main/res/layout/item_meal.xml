@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="5dp"
-    android:elevation="3dp"
-    app:cardCornerRadius="8dp">
+    android:layout_margin="@dimen/margin_minimun"
+    android:elevation="@dimen/card_elevation"
+    app:cardCornerRadius="@dimen/margin_default">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,8 +20,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:scaleType="fitXY" />
+            android:layout_height="@dimen/size_heigth_card_meal"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -30,9 +30,10 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:background="?android:colorBackground"
-            android:textSize="16sp"
-            android:padding="8dp"
+            android:textSize="@dimen/text_size_small"
+            android:padding="@dimen/margin_default"
             tools:text="Beef"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
