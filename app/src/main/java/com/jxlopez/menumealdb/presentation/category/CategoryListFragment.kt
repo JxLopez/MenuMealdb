@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import com.jxlopez.menumealdb.api.Status
 import com.jxlopez.menumealdb.databinding.FragmentCategoryListBinding
 import com.jxlopez.menumealdb.models.categories.CategoriesResponse
+import com.jxlopez.menumealdb.utils.extensions.loadImageUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,18 +34,38 @@ class CategoryListFragment : Fragment() {
         }
 
         observes()
+        viewModel.randomMeal()
         viewModel.getCategory()
         return binding.root
     }
 
     fun observes() {
-        viewModel.res.observe(viewLifecycleOwner) {
+        viewModel.categories.observe(viewLifecycleOwner) {
             when(it.status){
                 Status.SUCCESS -> {
                     it.data?.let { res ->
                         Log.e("Categories:::","$res")
                         categoriesAdapter = CategoryAdapter(res)
                         binding.rvCategories.adapter = categoriesAdapter
+                    }
+                }
+                Status.ERROR -> {
+                    if(it.error?.errorCode == 401) {
+                        //Toast.makeText(requireContext(), getString(R.string.token_expired_single), Toast.LENGTH_SHORT).show()
+                        //albumsViewModel.resetToken()
+                        //startActivity(Intent(requireContext(), LoginActivity::class.java))
+                        //requireActivity().finish()
+                    }
+                }
+            }
+        }
+
+        viewModel.mealRandom.observe(viewLifecycleOwner) {
+            when(it.status){
+                Status.SUCCESS -> {
+                    it.data?.let { meal ->
+                        binding.viewMealRandom.tvCategory.text = meal.strMeal
+                        binding.viewMealRandom.ivPhotoCategory.loadImageUrl(meal.strMealThumb)
                     }
                 }
                 Status.ERROR -> {

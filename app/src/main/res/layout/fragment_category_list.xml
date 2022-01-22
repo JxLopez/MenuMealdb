@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.category.CategoryListFragment">
 
@@ -19,18 +18,39 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivRecomendation"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleMealRandom"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="wrap_content"
+            android:text="Comida recomendada"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleWelcome"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <RelativeLayout
+            android:id="@+id/rvContentRandom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleMealRandom"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <include
+                android:id="@+id/viewMealRandom"
+                layout="@layout/item_category" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMealRandom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleMealRandom"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCategories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/ivRecomendation"
+            app:layout_constraintTop_toBottomOf="@+id/rvContentRandom"
             app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
